@@ -25,6 +25,8 @@ public:
 	void Print(float* A, int m, int n, String label);
 	void Copy(float* A, int n, int m, float* B);
 	void Multiply(float* A, float* B, int m, int p, int n, float* C);
+    void Multiply_AT(float* A, float* B, int m, int p, int n, float* C);
+    void Multiply_BT(float* A, float* B, int m, int p, int n, float* C);
 	void Add(float* A, float* B, int m, int n, float* C);
 	void Subtract(float* A, float* B, int m, int n, float* C);
 	void Transpose(float* A, int m, int n, float* C);

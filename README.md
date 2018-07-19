@@ -5,6 +5,7 @@ This Arduino library for Matrix Mathematical operations gives you all the basics
 You will need to pay careful attention to matching matrix dimensions - this isn't Matlab!
 
 ### History
+2018 Jos-Peer Geyer / Added Multiply_AT and _BT functions, which Transpose the first (second) Matrix during calculation -> Saves RAM and speeds up code like least-squares: X=(A' *A)^-1*A' *y .
 
 2016 Vasilis Georgitzikis / Package code into easy-install Arduino library. 
 

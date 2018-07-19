@@ -61,6 +61,45 @@ void MatrixMath::Multiply(float* A, float* B, int m, int p, int n, float* C)
 		}
 }
 
+void MatrixMath::Multiply_AT(float* A, float* B, int m, int p, int n, float* C)
+{
+	// A = input matrix (p x m) -> is transposed during calculation
+	// B = input matrix (p x n)
+	// m = number of rows in A = number of rows in B
+	// p = number of columns in A
+	// n = number of columns in B
+	// C = output matrix = A'*B (m x n)
+	int i, j, k;
+	for (i = 0; i < p; i++)
+		for(j = 0; j < n; j++)
+		{
+			C[n * i + j] = 0;
+			for (k = 0; k < m; k++)
+				C[n * i + j] = C[n * i + j] + A[p * k + i] * B[n * k + j];
+		}
+}
+
+void MatrixMath::Multiply_BT(float* A, float* B, int m, int p, int n, float* C)
+{
+	// A = input matrix (m x p)
+	// B = input matrix (n x p) -> is transposed during calculation
+	// m = number of rows in A
+	// p = number of columns in A  = number of cols in B
+	// n = number of rows in B
+	// C = output matrix = A'*B (m x n)
+	int i, j, k;
+	for (i = 0; i < m; i++)
+		for(j = 0; j < n; j++)
+		{
+			C[n * i + j] = 0;
+			for (k = 0; k < p; k++)
+				C[n * i + j] = C[n * i + j] + A[p * i + k] * B[p * j + k];
+		}
+}
+
+
+
+
 
 //Matrix Addition Routine
 void MatrixMath::Add(float* A, float* B, int m, int n, float* C)
